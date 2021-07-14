@@ -1,15 +1,17 @@
-import React, { useImperativeHandle } from 'react'
+import React from 'react'
+
+
 
 const Userlist = props => {
-    const {user} = props;
+    const {name,userId,email,createdAt} = props.user;
     
     return(
-        <div>
-            <h2>{user.name}</h2>
-            <p>User ID:{user.id}</p>
-            <p>Email:{user.email}</p>
-            <p>Created:{user.createdAt}</p>
-        </div>
+        <li>
+            <h2>{name}</h2>
+            <p>User ID:{userId}</p>
+            <p>Email:{email}</p>
+            <p>Created:{createdAt}</p>
+        </li>
     )
 }
 

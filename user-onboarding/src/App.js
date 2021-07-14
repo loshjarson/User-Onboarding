@@ -10,9 +10,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Form users={users} setUsers={setUsers}/>
-        {users.map(user=>{
-          return(<UserList user={user} />)
+        <ul style={{listStyle: 'none'}}>
+          {users.map(user=>{
+          return(<UserList user={user} key={user.name}/>)
         })}
+        </ul>
+        
         
       </header>
     </div>
