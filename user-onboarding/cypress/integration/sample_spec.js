@@ -49,7 +49,7 @@ describe('Validation test', () => {
 })
 
 describe('Form test', () => {
-    it('Checks if the form submits', () => {
+    it('Checks if the form submits and resets values', () => {
         cy.visit('/build');
         cy.get('[data-cy=name]').type("Joshua");
         cy.get('[data-cy=email]').type("Joshua@email.com");
@@ -58,10 +58,15 @@ describe('Form test', () => {
         cy.get('[data-cy=submit]').click()
         cy.intercept('POST','https://reqres.in/api/users', (req)=>{
             req.continue((res) => {
-                console.log(res)
                 expect(res.statusCode).to.equal(201)
             })
         }).as('postUser')
         cy.wait('@postUser')
+        cy.get('[data-cy=name]').should('have.value',"");
+        cy.get('[data-cy=email]').should('have.value',"");
+        cy.get('[data-cy=password]').should('have.value',"");
+        cy.get('[data-cy=agree]').should('not.be.checked');
+        cy.get('[data-cy=submit]').should('be.disabled');
+        
     })
 })

@@ -55,10 +55,15 @@ const Form = props => {
                     email:[email],
                     createdAt: [createdAt]
                 }])
-                debugger
+                setForm({
+                    name: '',
+                    email: '',
+                    password: '',
+                    agree: false,
+                  })
             })
             .catch(err => {
-                debugger
+                console.log(err)
             })
     }
 
