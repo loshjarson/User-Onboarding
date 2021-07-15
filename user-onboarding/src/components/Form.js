@@ -64,7 +64,7 @@ const Form = props => {
 
     return(
         <div>
-            <div style={{color: 'red'}}>
+            <div style={{color: 'red'}} data-cy='error-wrapper'>
                 <div>{errors.name}</div><div>{errors.email}</div><div>{errors.password}</div><div>{errors.agree}</div>
             </div>
             <form onSubmit={handleSubmit}>
@@ -84,7 +84,7 @@ const Form = props => {
                     Do you agree to the Terms of Service?
                     <input onChange={handleChange} checked={form.agree} name="agree" type="checkbox" data-cy='agree'/>
                 </label>
-                <button disabled={disabled}>Submit</button>
+                <button disabled={disabled} data-cy='submit'>Submit</button>
             </form>
         </div>
     )
