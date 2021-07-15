@@ -70,19 +70,19 @@ const Form = props => {
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
-                    <input onChange={handleChange} value={form.name} name="name" type="text"/>
+                    <input onChange={handleChange} value={form.name} name="name" type="text" data-cy='name'/>
                 </label>
                 <label>
                     Email:
-                    <input onChange={handleChange} value={form.email} name="email" type="text"/>
+                    <input onChange={handleChange} value={form.email} name="email" type="text" data-cy='email'/>
                 </label>
                 <label>
                     Password:
-                    <input onChange={handleChange} value={form.password} name="password" type="text"/>
+                    <input onChange={handleChange} value={form.password} name="password" type="text" data-cy='password'/>
                 </label>
                 <label>
                     Do you agree to the Terms of Service?
-                    <input onChange={handleChange} checked={form.agree} name="agree" type="checkbox" />
+                    <input onChange={handleChange} checked={form.agree} name="agree" type="checkbox" data-cy='agree'/>
                 </label>
                 <button disabled={disabled}>Submit</button>
             </form>
